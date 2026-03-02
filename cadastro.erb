@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cadastro</title>
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #4e73df;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2e59d9;
+}
+
+.regras {
+  font-size: 13px;
+  background: #f8f9fc;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.erro {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>Cadastro</h2>
+
+<% if @erro %>
+  <p class="erro"><%= @erro %></p>
+<% end %>
+
+<form method="post" action="/cadastro">
+  <label>Usuário</label>
+  <input type="text" name="usuario" required>
+
+  <label>Senha</label>
+  <input type="password" name="senha" required>
+
+  <div class="regras">
+    A senha precisa ter:
+    <ul>
+      <li>Mínimo 8 caracteres</li>
+      <li>Pelo menos 1 número</li>
+      <li>Pelo menos 1 letra maiúscula</li>
+    </ul>
+  </div>
+
+  <button type="submit">Cadastrar</button>
+</form>
+
+<br>
+<p style="text-align:center;">
+<a href="/login">Já tem conta? Login</a>
+</p>
+
+</div>
+</body>
+</html>

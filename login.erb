@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #36b9cc, #858796);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #36b9cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2c9faf;
+}
+
+.erro {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h2>Login</h2>
+
+<% if @erro %>
+  <p class="erro"><%= @erro %></p>
+<% end %>
+
+<form method="post" action="/login">
+  <label>Usuário</label>
+  <input type="text" name="usuario" required>
+
+  <label>Senha</label>
+  <input type="password" name="senha" required>
+
+  <button type="submit">Entrar</button>
+</form>
+
+<br>
+<p style="text-align:center;">
+<a href="/cadastro">Criar conta</a>
+</p>
+
+</div>
+</body>
+</html>
